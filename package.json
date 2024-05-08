@@ -13,5 +13,11 @@
   "license": "ISC",
   "dependencies": {
     "node-sass": "^9.0.0"
+  },
+  "devDependencies": {
+    "stylelint": "^16.5.0",
+    "stylelint-config-recess-order": "^5.0.1",
+    "stylelint-config-standard": "^36.0.0",
+    "stylelint-scss": "^6.3.0"
   }
 }
