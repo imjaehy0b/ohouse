@@ -1,0 +1,79 @@
+%form-base {
+  @include text-style(16, $primary);
+  display: block;
+  width: 100%;
+  height: 40px;
+  padding: 0 16px;
+  background-color: $white;
+  border: 1px solid $border;
+  border-radius: 4px;
+  transition: background-color 200ms ease-in-out;
+  appearance: none;
+
+  &::placeholder {
+    color: $tertiary;
+  }
+
+  &:not(:disabled):hover {
+    background-color: $background;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
+}
+
+.form-input,
+.form-select {
+  @extend %form-base;
+}
+
+// NOTE: Select
+.select-group {
+  position: relative; //ic의 position을 변경하기위한 기준.
+
+  &.is-active {
+    .form-select {
+      border-color: $blue;
+    }
+    .ic-caret {
+      color: $blue;
+    }
+  }
+
+  .form-select {
+    padding-right: 40px;
+    text-overflow: ellipsis; //영역보다 text가 더 길어서 넘어갈때 사용
+  }
+
+  .ic-caret {
+    //위치가 form-select에 있어야함. 이것을 끌어다 옮기려면 absolute가 적절
+    @include position-center-y;
+    right: 8px;
+    font-size: 24px;
+    color: $tertiary;
+    pointer-events: none;
+    //앱솔루트라서 select위로 올라오니 클릭이 안먹힘,
+    //아이콘을 클릭하는게 아닌 어딜클릭하던 전체가 같은기능을하는거니
+    //이벤트를 none으로하면 됨.
+  }
+}
+
+// NOTE: Input
+
+.input-gruop {
+  position: relative;
+
+  .form-input {
+    padding-left: 40px;
+  }
+
+  .ic-search {
+    @include position-center-y;
+    left: 10px;
+    font-size: 20px;
+    color: $secondary;
+    pointer-events: none;
+  }
+}
