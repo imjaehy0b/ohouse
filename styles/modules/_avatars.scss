@@ -1,0 +1,27 @@
+%avatar-base {
+  //이미지는 태그>img 형식으로 사용하는게 좋기때문에
+  // base는 div에 적용할 내용을 쓴다.
+  display: block; //태그가 div가 아니라 다른종류일 수 있어서 block으로 선언
+  overflow: hidden;
+  border-radius: 50%;
+
+  img {
+    //태그 내부의 img에 적용할 내용
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.avatar-24 {
+  @extend %avatar-base;
+  width: 24px;
+  height: 24px;
+}
+
+.avatar-32 {
+  @extend %avatar-base;
+  width: 32px;
+  height: 32px;
+}
