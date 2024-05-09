@@ -1,0 +1,104 @@
+%btn-base {
+  //안에있는 텍스트에따라 달라지니 inline-block or inline-flex 를 고려
+  //공통부분인 패딩고려
+  @include inline-flexbox;
+  padding: 0 8px;
+  border-radius: 4px;
+  font-weight: 700;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
+}
+//버튼은  버튼의 스타일, 사이즈, 상태 에따라 크게 바뀜
+//스타일,사이즈,상태 각각 만들어준다
+
+//버튼 스타일 +상태
+//버튼 상태는 스타일에 큰 영향을 받는다. 그렇기에 스타일에 같이 적용
+//기본, 호버, 비활성, 포커스, 액티브 등등 일때에 따라 구분
+.btn-primary {
+  @extend %btn-base;
+  color: $white;
+  background-color: $blue;
+  transition: background-color 200ms ease-in-out;
+
+  &:hover {
+    background-color: $blue-dark;
+  }
+
+  &:disabled:hover {
+    background-color: $blue;
+  }
+
+  //또는 hover를 아래처럼 변경해준다.
+  //해석하면 -> 그리고:아닌것(disabled)이:hover된다면 { 내용적용 }
+  //&:not(:disabled):hover{}
+}
+
+.btn-secondary {
+  @extend %btn-base;
+  color: $primary;
+  background-color: $border;
+  transition: background-color 200ms ease-in-out;
+
+  &:hover {
+    background-color: $tertiary;
+  }
+
+  &:disabled:hover {
+    background-color: $border;
+  }
+}
+
+.btn-outlined {
+  @extend %btn-base;
+  color: $blue;
+  background-color: $white;
+  border: 1px solid $blue;
+  transition: background-color 200ms ease-in-out;
+
+  &:hover {
+    background-color: $blue-light;
+  }
+
+  &:disabled:hover {
+    background-color: $white;
+  }
+}
+
+.btn-ghost {
+  @extend %btn-base;
+  color: $primary;
+  background-color: transparent;
+  transition: color 200ms ease-in-out;
+
+  &:hover {
+    color: $secondary;
+  }
+
+  &:disabled:hover {
+    color: $primary;
+    background-color: transparent;
+  }
+}
+
+//버튼 사이즈
+//재사용을 자주하니 width값을 고정하지않는게 좋다. height을 기준으로 구분하는게 좋다
+
+.btn-32 {
+  @include text-style(14);
+  height: 32px;
+}
+.btn-40 {
+  @include text-style(16);
+  height: 48px;
+}
+.btn-48 {
+  @include text-style(16);
+  height: 40px;
+}
+.btn-55 {
+  @include text-style(18);
+  height: 32px;
+}
