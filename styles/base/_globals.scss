@@ -1,4 +1,5 @@
 .visually-hidden {
+  position: absolute !important;
   width: 1px !important;
   height: 1px !important;
   padding: 0 !important;
@@ -19,25 +20,26 @@
   @media screen and (max-width: $md-breakpoint - 1) {
     display: none !important;
   }
+
   @media screen and (min-width: $lg-breakpoint) {
     display: none !important;
   }
 }
 
 .lg-only {
-  @media screen and (max-width: $md-breakpoint - 1) {
+  @media screen and (max-width: $lg-breakpoint - 1) {
     display: none !important;
   }
 }
 
 .sm-hidden {
-  @media screen and (max-width: $md-breakpoint -1) {
+  @media screen and (max-width: $md-breakpoint - 1) {
     display: none !important;
   }
 }
 
 .md-hidden {
-  @media screen and (mix-width: $md-breakpoint) and (max-width: $lg-breakpoint - 1) {
+  @media screen and (min-width: $md-breakpoint) and(max-width: $lg-breakpoint - 1) {
     display: none !important;
   }
 }
