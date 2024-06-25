@@ -11,7 +11,7 @@
   transition: color 200ms ease-in-out, background-color 200ms ease-in-out;
 
   &.is-menu {
-    color: blue;
+    color: $black;
 
     &:active {
       color: $blue-dark;
